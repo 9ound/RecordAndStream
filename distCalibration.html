@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formant Distance Calibration Studio Page</title>
+	<style>
+		.videoContainer{
+			text-align: center;
+		}
+		#range{
+			width: 600px;
+			height: 600px;
+		}
+		.row {
+			background-color: cornflowerblue;
+		}
+		.slider {
+		  -webkit-appearance: none;
+		  width: 100%;
+		  height: 50px;
+		  background: #DDDDDD;
+		  outline: none;
+		  opacity: 0.7;
+		  -webkit-transition: .2s;
+		  transition: opacity .2s;
+		}
+		.slider:hover {
+		  opacity: 1;
+		}
+		.slider::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 25px;
+		  height: 50px;
+		  background: orangered;
+		  cursor: pointer;
+		}
+		.slider::-moz-range-thumb {
+		  width: 25px;
+		  height: 50px;
+		  background: #4CAF50;
+		  cursor: pointer;
+		}
+		.sliderA {
+			padding: 0px;
+			margin-left: 0px;
+			border: 0px;
+			width: 48vw;
+			float: left;
+		}
+		.sliderB {
+			padding: 0px;
+			margin-right: 0px;
+			border: 0px;
+			width: 48vw;
+			float: right;
+		}
+		.flag{
+			background-color: red;
+			color: white;
+			margin-left: 10%;
+			width: 90%;
+			height: 90%;
+			border:1px solid black;
+		}
+		.button {
+		  background-color: #4CAF50;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		}
+		video {
+			border: solid 10px;
+			background: black;
+			transition: opacity .1s;
+			width: 25%;
+			opacity: 1;
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+</head>
+<body>
+	<div class="videoContainer">
+		<video id="onlineVideoA" autoplay muted></video>
+		<video id="onlineVideoB" autoplay muted></video>
+	</div>
+	<div class="slideContainer">
+		<div id="slider" class="sliderA">
+			<label for="audioSourceA">Microphone A: </label>
+			<select id="audioSourceA" class="form-control"></select>
+			<button id="button">Init Mic A</button>
+			<br/>
+			<label for="videoSourceA">Camera A: </label>
+			<select id="videoSourceA" class="form-control"></select>
+			<p id="thresholdA">Signal Threshold / Current Input Vol:</p>
+			<input type="range" min="0" max="15" step="0.01" value="3.0" class="slider" id="micSensitivtyA">
+		</div>
+	</div>
+	<div class="slideContainer">
+	  <div class="sliderB">
+	    <label for="audioSourceB">Microphone B: </label>
+			<select id="audioSourceB" class="form-control"></select>
+			<button id="buttonB">Init Mic B</button>
+			<br/>
+			<label for="videoSourceB">Camera B: </label>
+			<select id="videoSourceB" class="form-control"></select>
+			<p id="thresholdB">Signal Threshold / Current Input Vol:</p>
+			<input type="range" min="0" max="15" step="0.01" value="3.0" class="slider" id="micSensitivtyB">
+			<br/>
+	  </div>
+	</div>
+	<div style="text-align:center;">
+		<button class="button" id="setting">Currently Set: Manual</button>
+		<button class="button" id="speechAnalysis">Turn On Automated Switching</button>
+		<button class="button" id="speechAnalysisOff" disabled>Turn Off Automated Switching</button>
+		<button class="button" id="onOffFeedback" onclick="turnOffFeedback()">Visual Feedback is On</button>
+	</br>
+		<button class="button" onclick="init()">Start stream</button>
+		<button class="button" onclick="initRec()">Start Rec</button>
+	</div>
+	<div style="width:40%; float:left; margin-top: 3vh;">
+		<input class="f1Dist-slider-micA" name="f1_dist_a" value=""/>
+		<input class="f2Dist-slider-micA" name="f2_dist_a" value=""/>
+	</div>
+	<div style="width:9%; height: 10vh; float:left; margin-top: 3vh;">
+		<div id="f1DistA" class="flag"></div>
+		<div id="f2DistA" class="flag"></div>
+	</div>
+	<div style="width:9%; height: 10vh; float:left; margin-top: 3vh;">
+		<div id="f1DistB" class="flag"></div>
+		<div id="f2DistB" class="flag"></div>
+	</div>
+	<div style="width:40%; float:right; margin-top: 3vh;">
+		<input class="f1Dist-slider-micB" name="f1_dist_b" value=""/>
+		<input class="f2Dist-slider-micB" name="f2_dist_b" value=""/>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/distanceMethod/voiceDetect.js"></script>
+	<script type="text/javascript" src="/distanceMethod/index.js"></script>
+	<script type="text/javascript" src="/broadcastScripts/mseRec.js"></script>
+	<script type="text/javascript" src="/distanceMethod/rangeSlider.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  video {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 50vw;
+  	opacity: 1;
+  }
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .buttonContainer{
+    text-align: center;
+  }
+  .vid_container {
+    display: inline-block;
+  }
+  .inner{
+  	position: absolute;
+  }
+</style>
+	<title>Broadcast Page</title>
+</head>
+<body>
+  <div class="buttonContainer">
+    <button class="button" onclick="unmute()">Unmute</button>
+  </div>
+	<div class="vid_container">
+	  <video class="inner" id="mseVideo" autoplay muted></video>
+	  <video class="inner" id="mseVideo2" autoplay muted></video>
+	</div>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/broadcastScripts/mseRec.js"></script>
+	<script type="text/javascript" src="/broadcastScripts/broadcast.js"></script>
+</body>
+</html>

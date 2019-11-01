@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+    <style>
+      .button {
+    		background-color: #4CAF50;
+    		border: none;
+    		color: white;
+    		padding: 15px 32px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 16px;
+    		margin: 4px 2px;
+    		cursor: pointer;
+    	}
+      #wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }ody{
+        padding: 0px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="wrapper">
+    <button class="button" type="button" onclick="frmntCalib()" name="frmntCalib">Individual Formant Calibration</button>
+    <button class="button" type="button" onclick="frmntDist()" name="frmntDist">Formant Distance Calibration</button>
+    <button class="button" type="button" onclick="broadcast()" name="broadcast">Broadcast Page</button>
+  </div>
+  </body>
+  <script type="text/javascript">
+    function frmntCalib(){
+      document.location.href = document.location.href + 'frmntCalibration'
+    }
+    function frmntDist(){
+      document.location.href = document.location.href + 'distCalibration'
+    }
+    function broadcast(){
+      document.location.href = document.location.href + 'broadcast'
+    }
+  </script>
+</html>
