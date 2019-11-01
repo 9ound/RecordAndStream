@@ -14,7 +14,7 @@ To run the project:
 1. Open terminal,
 2. Change to the RecordAndStream directory,
 3. Enter the command 'node server.js',
-4. Open a browser page at http://localhost:8080 or i.p.add.here:8080 ( see above )
+4. Open a browser page at http://localhost:8080 or i.p.address.here:8080 ( see above )
 5. Click a button on the browsing page to direct you to a specific recording method or viewing page.
 
 # Individual Formant Calibration (Individual Method, frmntCalibration.html)
