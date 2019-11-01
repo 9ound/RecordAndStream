@@ -7,14 +7,14 @@ In order to view the broadcast on a separate machine connected on the same wifi 
 the socket connections need to be configured accordingly in the following scripts:
 broadcastScripts/broadcast.js, distanceMethod/index.js, individualMethod/index.js.
 
-socket = io.connect('http://your.i.p.here:8080');
+* socket = io.connect('http://your.i.p.here:8080');
 
 To run the project:
 ===================
 1. Open terminal,
-2. Change to the Conor_Muldowney_109424130_Project directory,
+2. Change to the RecordAndStream directory,
 3. Enter the command 'node server.js',
-4. Open a browser page at http://localhost:8080 or i.p.add.here:8080 ( see above * )
+4. Open a browser page at http://localhost:8080 or i.p.add.here:8080 ( see above )
 5. Click a button on the browsing page to direct you to a specific recording method or viewing page.
 
 # Individual Formant Calibration (Individual Method, frmntCalibration.html)
