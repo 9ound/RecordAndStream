@@ -1,6 +1,8 @@
 Automatic Visual Mixing System
 ==============================
 
+This project requires a system capable of taking 2 audio visual inputs. To achieve this, it is possible to use routing software combined with an external audio interface for the audio-ins and a usb webcam for the visual ins.
+
 In order to record and view the broadcast on a single machine, no changes need to be made.
 
 In order to view the broadcast on a separate machine connected on the same wifi network,
